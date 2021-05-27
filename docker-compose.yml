@@ -1,5 +1,20 @@
 version: "3"
 services:
+  mysqldb:
+    image: mysql
+    container_name: mysqldb
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 3XSDc48PCgdQ2avV
+      MYSQL_DATABASE: truenorth
+      MYSQL_PASSWORD: nVBB5RdjfbjfnLDJ
+      MYSQL_USER: truenorth
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
   backend:
     container_name: truenorthtestback
     build: 
@@ -11,6 +26,8 @@ services:
     restart: always
     ports:
       - "127.0.0.1:4000:8081"
+    depends_on:
+      - mysqldb
   frontend:
     container_name: truenorthtestfront
     build: 
@@ -22,3 +39,5 @@ services:
       - "3001:3000"
     links:
       - "backend:be"
+    depends_on:
+      - backend
