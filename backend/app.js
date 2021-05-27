@@ -1,6 +1,11 @@
 const express = require('express');
 const {PORT} = require('./config/server');
 const connection = require('./database');
+const cors = require('cors');
+
+const corsOptions = {
+  origin: [`127.0.0.1:${PORT}`, "http://localhost:3001"]
+};
 
 //MODELS
 const tasksModel = require('./models/tasks.model');
@@ -9,6 +14,7 @@ const tasksModel = require('./models/tasks.model');
 const tasksRoutes = require('./routes/tasks.routes');
 
 const app = express();
+app.use(cors(corsOptions));
 
 const database = {
   tasks: tasksModel(connection)

@@ -1,4 +1,4 @@
-const HOST = "localhost";//Docker container name | mysqldb
+const HOST = "mysqldb";//Docker container name | mysqldb
 const PORT = 3036;
 const USER = "truenorth";
 const DATABASE = "truenorth";

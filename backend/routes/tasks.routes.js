@@ -11,34 +11,34 @@ module.exports = (server)=>{
 
         try{
 
-            const size = req.params.size || 3;
+            const size = req.params.size ? req.params.size : 3;
             const tasks = await taskCntl.getTasks(size);
 
-            res.send(200).json(tasks);
+            return res.status(200).send(tasks);
 
         }catch(e){
             console.log(e);
-            return res.send(500).json({message: e});;
+            return res.status(500).send({success: false, message: e});;
         }
 
     });
 
-    server.put(`/${PREFIX}/:uuid`, apiMiddleware, async ()=>{
+    server.put(`/${PREFIX}/finish/:uuid`, apiMiddleware, async (req, res)=>{
 
         try{
-
+            
             const uuid = req.params.uuid;
 
             if(!uuid)
-                throw new Exception("UUID does not specified.");
+                throw "UUID does not specified.";
 
             await taskCntl.finishTask(uuid);
 
-            res.send(200);
+            res.status(200).send({success: true});
 
         }catch(e){
             console.log(e);
-            return res.send(500).json({message: e});
+            return res.status(500).send({success: false, message: e});
         }
 
     });
