@@ -1,6 +1,6 @@
-import {API_KEY} from '../config/server.js';
+const {API_KEY} = require('../config/server');
 
-export default (req, res)=>{
+module.exports = (req, res)=>{
 
     const apikey = req.headers["api-key"];
 

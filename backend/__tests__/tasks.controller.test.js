@@ -1,20 +1,35 @@
-import tasksController from './../controllers/tasks.controller.js';
-import connection from './../database.js';
+const connection = require('./../database.js');
+const tasksController = require('./../controllers/tasks.controller.js');
+const tasksModel = require('./../models/tasks.model');
 
-test("Fetch tasks", ()=>{
+afterAll(()=>{
+    connection.end();
+})
 
-    const taskCntl = tasksController(connection);
+test("Fetch tasks", async ()=>{
+
+    const taskCntl = tasksController({
+        tasks: tasksModel(connection)
+    });
+
     const taskLength = 10;
-
     const tasks = await taskCntl.getTasks(taskLength);
 
-    // expect(tasks.length).toBe(taskLength);
+    expect(tasks.length).toBe(taskLength);
 
 })
 
-test("Finish task", ()=>{
+test("Finish task", async ()=>{
 
-    // const taskCntl = tasksController(connection);
-    // taskCntl.finishTask();
+    const database = {
+        tasks: tasksModel(connection)
+    };
+
+    const taskCntl = tasksController(database);
+    const undoneTask = await database.tasks._getUndoneTask();
+
+    expect(undoneTask !== false).toBe(true);
+
+    await taskCntl.finishTask(undoneTask.uuid);
 
 })

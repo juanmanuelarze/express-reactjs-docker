@@ -1,24 +1,8 @@
-import {fetchIpsum} from './../utils/hipsterIpsumAPI.js';
+const {fetchIpsum} = require('./../utils/hipsterIpsumAPI.js');
 
-export default (database)=>{
+module.exports = (database)=>{
 
     return {
-        /*
-        Generate tasks titles using HipsterIpsum API https://hipsum.co/the-api/
-        size: int | number of titles
-        */
-        _generateTasksTitles: async (titlesLength)=>{
-            const titles = await fetchIpsum(titlesLength);
-            console.log(titles);
-            return titles;
-        },
-        /*
-        Store task in DB
-        title: string
-        */
-        storeTask: async (title)=>{
-            await database.tasks.storeTask(title);
-        },
         /*
         Get number of tasks from database and if have some left create the necesary quantity, 
         stores it and return the number of tasks requested
@@ -31,10 +15,10 @@ export default (database)=>{
             if(tasks.length < tasksLength){
                 
                 const newTasksSize = tasksLength - tasks.length
-                const newTasks = this._generateTasksTitles(newTasksSize);
+                const newTasksTitles = await fetchIpsum(newTasksSize);
 
-                for await(tasksTitles of newTasks){
-                    await this.storeTask(tasksTitles);
+                for await(title of newTasksTitles){
+                    await database.tasks.storeTask(title.trim());
                 }
 
                 tasks = await database.tasks.getTasks(tasksLength);
@@ -50,7 +34,7 @@ export default (database)=>{
         */
         finishTask: async (uuid)=>{
 
-            await server.database.tasks.finishTask(uuid);
+            await database.tasks.finishTask(uuid);
 
         }
     }

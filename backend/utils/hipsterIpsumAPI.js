@@ -1,10 +1,10 @@
-import axios from 'axios';
+const {get} = require('axios');
 
 const fetchIpsum = (sentencesLength)=>{
 
     return new Promise((resolve, reject)=>{
         
-        axios.get("https://hipsum.co/api/?type=hipster-centric&sentences=" + sentencesLength)
+        get("https://hipsum.co/api/?type=hipster-centric&sentences=" + sentencesLength)
         .then((response)=>{
             const sentences = response.data[0].split(".").filter(e=>e);
             resolve(sentences);
@@ -18,4 +18,4 @@ const fetchIpsum = (sentencesLength)=>{
 
 }
 
-export {fetchIpsum};
+module.exports = {fetchIpsum};

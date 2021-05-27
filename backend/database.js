@@ -1,11 +1,11 @@
-import {HOST, USER, PASSWORD, DATABASE} from './config/database.js';
-import mysql from 'mysql2/promise';
+const {HOST, USER, PASSWORD, DATABASE} = require('./config/database.js');
+const mysql = require('mysql2');
 
-const connection = await mysql.createConnection({
+const connection = mysql.createConnection({
     host: HOST,
     user: USER,
     database: DATABASE,
     password: PASSWORD
 });
 
-export default connection;
+module.exports = connection;

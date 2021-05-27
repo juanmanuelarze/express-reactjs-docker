@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "TrueNorth Test",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "jest",
     "dev:watch": "nodemon app.js",
     "build": "babel app.js --out-dir build"
   },

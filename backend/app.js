@@ -1,11 +1,12 @@
-import express from 'express';
-import {PORT} from './config/server.js';
-import connection from './database.js';
+const express = require('express');
+const {PORT} = require('./config/server');
+const connection = require('./database');
+
 //MODELS
-import tasksModel from './models/tasks.model.js';
+const tasksModel = require('./models/tasks.model');
 
 //ROUTES
-import tasksRoutes from './routes/tasks.routes.js';
+const tasksRoutes = require('./routes/tasks.routes');
 
 const app = express();
 

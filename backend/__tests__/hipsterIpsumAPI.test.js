@@ -1,4 +1,4 @@
-import { fetchIpsum } from '../utils/hipsterIpsumAPI.js';
+const {fetchIpsum} = require('../utils/hipsterIpsumAPI.js');
 
 test("HipsterIpsumAPI fetch", async ()=>{
 

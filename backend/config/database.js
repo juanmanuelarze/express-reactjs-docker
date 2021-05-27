@@ -4,4 +4,4 @@ const USER = "truenorth";
 const DATABASE = "truenorth";
 const PASSWORD = "nVBB5RdjfbjfnLDJ";
 
-export {HOST, PORT, DATABASE, PASSWORD, USER};
+module.exports = {HOST, PORT, DATABASE, PASSWORD, USER};

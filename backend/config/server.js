@@ -1,4 +1,4 @@
 const PORT = 8081;
 const API_KEY = "BVz4wrYnHJvhFfmu";
 
-export {PORT, API_KEY};
+module.exports = {PORT, API_KEY};

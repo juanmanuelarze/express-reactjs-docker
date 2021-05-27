@@ -1,9 +1,9 @@
-import tasksController from './../controllers/tasks.controller.js';
-import apiMiddleware from '../middlewares/api.middleware.js';
+const tasksController = require('./../controllers/tasks.controller.js');
+const apiMiddleware = require('../middlewares/api.middleware.js');
 
 const PREFIX = 'tasks';
 
-export default (server)=>{
+module.exports = (server)=>{
 
     const taskCntl = tasksController(server.database);
 
