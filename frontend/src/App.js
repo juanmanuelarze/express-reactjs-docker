@@ -13,16 +13,22 @@ function App() {
   const [modalState, setModalState] = useState(false);
   const [task, setTask] = useState(null);
 
-  useEffect(async ()=>{
+  useEffect(()=>{
 
-    setLoading(true);
+    async function fetch(){
 
-    const tasks = await fetchTasks(taskLength);
+      setLoading(true);
 
-    if(tasks)
-      setTasksList(tasks);
+      const tasks = await fetchTasks(taskLength);
 
-    setLoading(false);
+      if(tasks)
+        setTasksList(tasks);
+
+      setLoading(false);
+
+    }
+
+    fetch();
 
   }, [taskLength]);
 

@@ -10,8 +10,8 @@ module.exports = (connection)=>{
         storeTask: async (title)=>{
             await connection.promise().query(`INSERT INTO ${tableName} (uuid, title) VALUES (UUID(), ?)`, [title]);
         },
-        finishTask:async (uuid)=>{
-            await connection.promise().query(`UPDATE ${tableName} SET state = 1, updated_at = NOW() WHERE ${tableName}.uuid = ?`, [uuid]);
+        finishTask:(uuid)=>{
+            connection.promise().query(`UPDATE ${tableName} SET state = 1, updated_at = NOW() WHERE ${tableName}.uuid = ?`, [uuid]);
         },
         _getUndoneTask: async ()=>{
             const [rows] = await connection.promise().query(`SELECT ${tableName}.uuid FROM ${tableName} WHERE state = 0 LIMIT 1`);

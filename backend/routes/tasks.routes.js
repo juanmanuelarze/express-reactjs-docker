@@ -32,7 +32,7 @@ module.exports = (server)=>{
             if(!uuid)
                 throw "UUID does not specified.";
 
-            await taskCntl.finishTask(uuid);
+            taskCntl.finishTask(uuid);
 
             res.status(200).send({success: true});
 

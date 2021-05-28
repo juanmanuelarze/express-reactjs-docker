@@ -1,5 +1,4 @@
 import './styles.css';
-import Modal from './../Modal/Modal';
 
 function TaskItem({task, showTask}) {
 

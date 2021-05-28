@@ -32,10 +32,10 @@ module.exports = (database)=>{
         Updates task state from 0 to 1
         uuid: string | UUID identifier of the task
         */
-        finishTask: async (uuid)=>{
+        finishTask: (uuid)=>{
             
             console.log(`Task ${uuid} done!`);
-            await database.tasks.finishTask(uuid);
+            database.tasks.finishTask(uuid);
 
         }
     }
