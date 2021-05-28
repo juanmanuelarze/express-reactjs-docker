@@ -4,6 +4,8 @@ $ docker-compose up --build
 
 Asure mysql container been ready before backend container otherwise nodejs backend will cant connect to mysql. Wait to mysql container are ready and execute the previous command again.
 
+Wait react server is up.
+
 Open a web browser and go to http://localhost:3001/
 
 How to run tests:
