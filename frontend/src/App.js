@@ -18,7 +18,9 @@ function App() {
     setLoading(true);
 
     const tasks = await fetchTasks(taskLength);
-    setTasksList(tasks);
+
+    if(tasks)
+      setTasksList(tasks);
 
     setLoading(false);
 
