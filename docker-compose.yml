@@ -25,13 +25,11 @@ services:
     volumes:
       - ./backend:/usr/src/app/
     command: npm run dev:watch
-    restart: always
+    restart: on-failure
     ports:
       - "127.0.0.1:4000:8081"
     depends_on:
       - mysqldb
-    links:
-      - "mysqldb:be"
   frontend:
     container_name: truenorthtestfront
     build: 
