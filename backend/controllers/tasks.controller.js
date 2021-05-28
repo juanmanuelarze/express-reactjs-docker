@@ -4,9 +4,9 @@ module.exports = (database)=>{
 
     return {
         /*
-        Get number of tasks from database and if have some left create the necesary quantity, 
-        stores it and return the number of tasks requested
-        size: int
+        Get number of tasks from database and if have some left create the necesary, 
+        stores its and return the number of tasks requested
+        tasksLength: int
         */
         getTasks: async (tasksLength)=>{
 
