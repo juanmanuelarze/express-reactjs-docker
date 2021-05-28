@@ -1,3 +1,8 @@
+Clone the project
+
+./backend/npm install
+./frontend/npm install
+
 Asure you have docker runing in your local machine and execute the following command from the root of the project
 
 $ docker-compose up --build

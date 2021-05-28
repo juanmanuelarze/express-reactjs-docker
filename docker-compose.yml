@@ -25,7 +25,6 @@ services:
     volumes:
       - ./backend:/usr/src/app/
     command: npm run dev:watch
-    restart: on-failure
     ports:
       - "127.0.0.1:4000:8081"
     depends_on:
