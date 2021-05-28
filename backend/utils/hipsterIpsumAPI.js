@@ -11,7 +11,7 @@ const fetchIpsum = (sentencesLength)=>{
         })
         .catch((error)=>{
             console.log(error);
-            reject(null);
+            reject([]);
         });
 
     });
