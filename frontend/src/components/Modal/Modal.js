@@ -35,7 +35,9 @@ const Modal = ({task, modalState, close, complete})=>{
                     {loading && 
                         <img src={logo} className="loading" alt="logo" />
                     }
-                    <button disabled={completeDisabled} className="modal-button complete" onClick={innerComplete}>COMPLETE</button>
+                    {task.state === 0 && 
+                        <button disabled={completeDisabled} className="modal-button complete" onClick={innerComplete}>COMPLETE</button>
+                    }
                     <button className="modal-button close" onClick={close}>CLOSE</button>
                 </footer>
             </div>
