@@ -1,8 +1,8 @@
 Clone the project
 
-$ ./backend/npm install
+$ cd backend && npm install
 
-$ ./frontend/npm install
+$ cd frontend && npm install
 
 Asure you have docker runing in your local machine and execute the following command from the root of the project
 
