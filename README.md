@@ -1,10 +1,10 @@
-Asure you have docker runing in your local machine and execute the following command 
+Asure you have docker runing in your local machine and execute the following command from the root of the project
 
 $ docker-compose up --build
 
 Asure mysql container been ready before backend container otherwise nodejs backend will cant connect to mysql. Wait to mysql container are ready and execute the previous command again.
 
-Wait react server is up.
+Wait until react server is up.
 
 Open a web browser and go to http://localhost:3001/
 
