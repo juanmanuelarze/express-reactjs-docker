@@ -21,7 +21,7 @@ module.exports = (server)=>{
             return res.status(500).send({success: false, message: e});;
         }
 
-    });
+    }); 
 
     server.put(`/${PREFIX}/finish/:uuid`, apiMiddleware, async (req, res)=>{
 

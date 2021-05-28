@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` bigint unsigned NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(36) NOT NULL,
   `title` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
